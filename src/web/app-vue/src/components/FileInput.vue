@@ -8,7 +8,7 @@
       @change="handleFileChange"
     />
     <button
-      @click="$refs.fileInput.click()"
+      @click="fileInput?.click()"
       :disabled="loading"
       class="select-button"
     >
@@ -22,9 +22,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { loadWavFile, downsampleAudio } from '@shared/audioUtils'
-import { prepareAudioData } from '@shared/fft'
-import type { ComplexNumber } from '@shared/types'
+import { loadWavFile, downsampleAudio } from '../../../shared/audioUtils'
+import { prepareAudioData } from '../../../shared/fft'
+import type { ComplexNumber } from '../../../shared/types'
 
 const emit = defineEmits<{
   (e: 'dataLoaded', data: ComplexNumber[]): void
